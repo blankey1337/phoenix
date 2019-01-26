@@ -73,7 +73,12 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">packages/crypto/src/decryptMessage.ts</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { decryptAES } from &quot;./decryptAES&quot;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Original work Copyright (c) 2018 PoC-Consortium  
+ * Modified work Copyright (c) 2019 Burst Apps Team
+ */
+
+import { decryptAES } from &quot;./decryptAES&quot;;
 import { ECKCDSA } from &quot;./ec-kcdsa&quot;;
 import { Converter } from &quot;./converter&quot;;
 import * as CryptoJS from &quot;crypto-js&quot;;

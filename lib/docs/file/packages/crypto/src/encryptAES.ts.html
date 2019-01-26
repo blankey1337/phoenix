@@ -73,7 +73,12 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">packages/crypto/src/encryptAES.ts</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import * as CryptoJS from &quot;crypto-js&quot;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Original work Copyright (c) 2018 PoC-Consortium  
+ * Modified work Copyright (c) 2019 Burst Apps Team
+ */
+
+import * as CryptoJS from &quot;crypto-js&quot;;
 
 /*
 * Encrypt a derived hd private key with a given pin and return it in Base64 form
