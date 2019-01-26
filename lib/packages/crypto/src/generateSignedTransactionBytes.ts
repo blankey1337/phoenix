@@ -1,4 +1,9 @@
 /**
+ * Original work Copyright (c) 2018 PoC-Consortium  
+ * Modified work Copyright (c) 2019 Burst Apps Team
+ */
+
+/**
  * Generates a signed message digest
  * @param unsignedTransactionHex The unsigned message
  * @param signature The signature

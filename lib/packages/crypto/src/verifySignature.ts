@@ -1,3 +1,8 @@
+/**
+ * Original work Copyright (c) 2018 PoC-Consortium  
+ * Modified work Copyright (c) 2019 Burst Apps Team
+ */
+
 import { Converter } from './converter';
 import { ECKCDSA } from './ec-kcdsa';
 import * as CryptoJS from 'crypto-js';

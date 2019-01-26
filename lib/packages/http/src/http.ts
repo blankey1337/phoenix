@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2019 Burst Apps Team
+ */
+
 import axios from 'axios';
 import HttpResponse from './httpResponse';
 import HttpError from './httpError';

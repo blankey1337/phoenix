@@ -1,4 +1,8 @@
-// TODO: Keys are a crypto typing...or not?
+/**
+ * Original work Copyright (c) 2018 PoC-Consortium  
+ * Modified work Copyright (c) 2019 Burst Apps Team
+ */
+
 import { Keys } from '../typings/keys';
 import * as CryptoJS from 'crypto-js';
 import { ECKCDSA } from './ec-kcdsa';
