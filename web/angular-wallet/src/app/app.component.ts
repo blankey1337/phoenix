@@ -8,6 +8,8 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { AccountService } from './setup/account/account.service';
 import { StoreService } from './store/store.service';
 import { Account } from '@burstjs/core';
+import { BrsApiServiceClient } from '../../net/grpc/protobufs/BrsApiServiceClientPb';
+import { GetBlockRequest } from '../../net/grpc/protobufs/brsApi_pb';
 
 @Component({
   selector: 'app',
@@ -57,6 +59,15 @@ export class AppComponent implements OnInit, OnDestroy {
             this.accounts = accounts;
           })
         }
+    });
+
+    var brsApiServiceClient = new BrsApiServiceClient('http://localhost:9090');
+
+    var request = new GetBlockRequest();
+
+    brsApiServiceClient.getBlock(request, {}, function(err, response) {
+      console.log(response);
+      this.getBlockExample = response;
     });
 
 

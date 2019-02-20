@@ -1,5 +1,3 @@
-/** @module http */
-
 import Http from './http';
 import HttpResponse from './httpResponse';
 import HttpError from './httpError';
@@ -78,7 +76,7 @@ class HttpMock {
      *  The next code returns the different content depending on the passed endpoint
      * ```
      *   HttpMock.onGet('/foo').reply(200, {data: 'foo'});
-     *   HttpMock.onGet('/bar').reply(200, {data: 'bar'});
+     *   c
      * ```
      * @param endpoint?  An endpoint, to allow specific behavior on that endpoint
      */
