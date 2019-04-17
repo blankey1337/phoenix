@@ -14,7 +14,7 @@
     "start-hmr-sourcemaps": "ng serve --configuration hmr --source-map=true --hmr-warning=false",
     "build": "node --max_old_space_size=6144 ./node_modules/@angular/cli/bin/ng build",
     "build:ci": "ng build --aot --source-map=false --stats-json",
-    "build:stats": "npm run build -- --dev --stats-json",
+    "build:stats": "npm run build -- --stats-json",
     "build:prod": "npm run build -- --prod",
     "build:prod-stats": "npm run build -- --prod --stats-json",
     "test": "jest",
@@ -100,6 +100,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.1.6",
+    "webpack-bundle-analyzer": "^3.3.2"
   }
 }
