@@ -31,6 +31,9 @@
     "publish": [
       "github"
     ],
+    "desktop": {
+      "MimeType": "x-scheme-handler/burst;" 
+    },
     "category": "Finance"
   },
   "win": {
@@ -50,5 +53,9 @@
     "packElevateHelper": false,
     "perMachine": false,
     "artifactName": "${os}-phoenix-burst-wallet-setup.${version}.${ext}"
+  },
+  "protocols": {
+    "name": "burst",
+    "schemes": ["burst"]
   }
 }

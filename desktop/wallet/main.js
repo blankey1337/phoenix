@@ -1,6 +1,7 @@
 const path = require('path');
 const { app, BrowserWindow, Menu, shell, ipcMain, protocol } = require('electron');
 const { download } = require('electron-dl');
+const childProcess = require('child_process');
 
 const { version, update } = require('./package.json');
 const UpdateService = require('./src/updateService');
@@ -224,6 +225,11 @@ function onReady() {
   ipcMain.on('new-version-asset-selected', downloadUpdate);
 
   app.setAsDefaultProtocolClient('burst');
+
+  if (isLinux()) {
+    childProcess.exec('xdg-mime default phoenix.desktop x-scheme-handler/burst');
+  }
+
 }
 
 function logEverywhere(s) {
