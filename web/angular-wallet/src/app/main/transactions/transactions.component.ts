@@ -19,8 +19,8 @@ export class TransactionsComponent implements OnInit, AfterViewInit{
   pickerFromField = new FormControl();
   pickerToField = new FormControl();
 
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private route: ActivatedRoute

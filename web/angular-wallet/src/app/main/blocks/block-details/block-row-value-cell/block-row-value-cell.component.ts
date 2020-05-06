@@ -15,7 +15,7 @@ export class BlockRowValueCellComponent {
 
   @Input() value: BlockCellValue;
   @Input() block: Block;
-  @ViewChild('pin', {static: false}) pin: string;
+  @ViewChild('pin') pin: string;
 
   decryptedMessage = '';
   public convertAddressToNumericId: (address: string) => string;

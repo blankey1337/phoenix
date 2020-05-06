@@ -45,7 +45,7 @@ export class SendBurstFormComponent extends UnsubscribeOnDestroy implements OnIn
   @ViewChild('sendBurstForm', { static: true }) public sendBurstForm: NgForm;
   @ViewChild('amount', { static: true }) public amount: string;
   @ViewChild('message', { static: true }) public message: string;
-  @ViewChild('fullHash', { static: false }) public fullHash: string;
+  @ViewChild('fullHash') public fullHash: string;
   @ViewChild('encrypt', { static: true }) public encrypt: boolean;
   @ViewChild('pin', { static: true }) public pin: string;
   @ViewChild('messageIsText', { static: true }) public messageIsText: boolean;

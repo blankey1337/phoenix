@@ -40,13 +40,13 @@ export class MessageViewComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input('feeNQT') feeNQT: number;
   @Input('encrypt') encrypt: boolean;
 
-  @ViewChild('pin', { static: false })
+  @ViewChild('pin')
   pin: string;
   @ViewChild(FusePerfectScrollbarDirective, { static: true })
   directiveScroll: FusePerfectScrollbarDirective;
   @ViewChildren('replyInput')
   replyInputField;
-  @ViewChild('replyForm', { static: false })
+  @ViewChild('replyForm')
   replyForm: NgForm;
 
   message: Messages;

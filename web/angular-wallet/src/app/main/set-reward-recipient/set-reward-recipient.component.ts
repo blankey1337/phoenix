@@ -15,11 +15,11 @@ import {convertAddressToNumericId, convertNumberToNQTString} from '@burstjs/util
   styleUrls: ['./set-reward-recipient.component.scss']
 })
 export class SetRewardRecipientComponent implements OnInit {
-  @ViewChild('setRewardRecipientForm', { static: false }) public setRewardRecipientForm: NgForm;
+  @ViewChild('setRewardRecipientForm') public setRewardRecipientForm: NgForm;
   public fee: string;
-  @ViewChild('recipient', { static: false }) public recipient: Recipient;
-  @ViewChild('fullHash', { static: false }) public fullHash: string;
-  @ViewChild('pin', { static: false }) public pin: string;
+  @ViewChild('recipient') public recipient: Recipient;
+  @ViewChild('fullHash') public fullHash: string;
+  @ViewChild('pin') public pin: string;
 
   @Output() submit = new EventEmitter<any>();
   advanced: boolean = false;

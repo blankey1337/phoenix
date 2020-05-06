@@ -44,7 +44,7 @@ export class TransactionTableComponent extends UnsubscribeOnDestroy implements A
   @Input() public displayedColumns = ['transaction_id', 'attachment', 'timestamp', 'type', 'amount', 'fee', 'account', 'confirmations'];
   @Input() paginationEnabled = true;
   @Input() account: Account;
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   public isMultiOutPayment(transaction: Transaction): boolean {
     return isMultiOutSameTransaction(transaction) || isMultiOutTransaction(transaction);

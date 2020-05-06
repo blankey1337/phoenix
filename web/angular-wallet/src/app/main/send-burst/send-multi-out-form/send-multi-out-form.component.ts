@@ -30,11 +30,11 @@ const isNotEmpty = (value: string) => value && value.length > 0;
 export class SendMultiOutFormComponent extends UnsubscribeOnDestroy implements OnInit {
 
   @ViewChild('sendBurstForm', {static: true}) public sendBurstForm: NgForm;
-  @ViewChild('recipientAddress', {static: false}) public recipientAddress: string;
+  @ViewChild('recipientAddress') public recipientAddress: string;
   @ViewChild('amount', {static: true}) public amount: string;
-  @ViewChild('message', {static: false}) public message: string;
-  @ViewChild('fullHash', {static: false}) public fullHash: string;
-  @ViewChild('encrypt', {static: false}) public encrypt: string;
+  @ViewChild('message') public message: string;
+  @ViewChild('fullHash') public fullHash: string;
+  @ViewChild('encrypt') public encrypt: string;
   @ViewChild('pin', {static: true}) public pin: string;
 
   @ViewChild('recipients', {static: true}) public recipients: Array<Recipient> = [];

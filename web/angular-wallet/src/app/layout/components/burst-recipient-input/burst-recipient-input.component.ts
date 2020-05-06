@@ -64,7 +64,7 @@ export class BurstRecipientInputComponent implements OnChanges {
   qrCodeUpload = new EventEmitter();
 
 
-  @ViewChild('file', {static: false}) file: ElementRef;
+  @ViewChild('file') file: ElementRef;
 
   constructor(private accountService: AccountService,
               private notifierService: NotifierService,

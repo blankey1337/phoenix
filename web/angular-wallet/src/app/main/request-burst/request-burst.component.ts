@@ -18,9 +18,9 @@ import {takeUntil} from 'rxjs/operators';
 export class RequestBurstComponent extends UnsubscribeOnDestroy implements OnInit {
   @ViewChild(MatStepper, {static: true}) stepper: MatStepper;
   @ViewChild('requestBurstForm', {static: true}) public requestBurstForm: NgForm;
-  @ViewChild('amountNQT', {static: false}) public amountNQT = '0';
-  @ViewChild('feeNQT', {static: false}) public feeNQT: string;
-  @ViewChild('immutable', {static: false}) public immutable = false;
+  @ViewChild('amountNQT') public amountNQT = '0';
+  @ViewChild('feeNQT') public feeNQT: string;
+  @ViewChild('immutable') public immutable = false;
   @Output() submit = new EventEmitter<any>();
 
   advanced = false;

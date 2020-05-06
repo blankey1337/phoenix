@@ -17,7 +17,7 @@ export class TransactionRowValueCellComponent {
 
   @Input() value: CellValue;
   @Input() transaction: Transaction;
-  @ViewChild('pin', {static: false}) pin: string;
+  @ViewChild('pin') pin: string;
 
   decryptedMessage = '';
   public convertAddressToNumericId: (address: string) => string;
