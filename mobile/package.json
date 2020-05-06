@@ -19,7 +19,7 @@
     "check:lint": "tslint --project tsconfig.json 'src/**/*.{ts,tsx}'",
     "check:tsc": "tsc --noEmit",
     "dev": "npm run dev:ios",
-    "dev:ios": "react-native run-ios --simulator=\"iPhone SE\"",
+    "dev:ios": "react-native run-ios --simulator=\"iPhone X\"",
     "dev:android": "react-native run-android",
     "init": "npm install && npm run link",
     "link": "react-native link",
