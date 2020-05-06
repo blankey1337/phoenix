@@ -26,7 +26,7 @@ import { AccountService } from 'app/setup/account/account.service';
 import { BurstFeeSelectorComponent } from 'app/layout/components/burst-fee-selector/burst-fee-selector.component';
 import { Ng5SliderModule } from 'ng5-slider';
 import { TransactionService } from '../transactions/transaction.service';
-import { MatProgressBarModule } from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {AppSharedModule} from '../../shared/shared.module';
 
 describe('SetAccountInfoComponent', () => {

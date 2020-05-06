@@ -27,7 +27,7 @@ import { BurstFeeSelectorComponent } from 'app/layout/components/burst-fee-selec
 import { Ng5SliderModule } from 'ng5-slider';
 import { TransactionService } from '../transactions/transaction.service';
 import { BurstRecipientInputComponent } from 'app/layout/components/burst-recipient-input/burst-recipient-input.component';
-import { MatProgressBarModule } from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {AppSharedModule} from '../../shared/shared.module';
 
 describe('SetRewardRecipientComponent', () => {

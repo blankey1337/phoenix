@@ -35,7 +35,7 @@ import {SendBurstFormComponent} from './send-burst-form/send-burst-form.componen
 import {SendMultiOutFormComponent} from './send-multi-out-form/send-multi-out-form.component';
 import {WarnSendDialogComponent} from './warn-send-dialog/warn-send-dialog.component';
 import {PageModule} from '../../components/page/page.module';
-import {MatProgressBarModule} from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {DomainService} from './domain/domain.service';
 import {AppSharedModule} from '../../shared/shared.module';
 

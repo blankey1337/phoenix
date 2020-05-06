@@ -20,7 +20,7 @@ import {TransactionTableModule} from '../transactions/transaction-table/transact
 import {DashboardService} from './dashboard.service';
 import {DashboardComponent} from './dashboard.component';
 import {BalanceChartComponent} from './balance-chart/balance-chart.component';
-import {MatCheckboxModule} from '@angular/material';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import {AppSharedModule} from '../../shared/shared.module';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {MarketOverviewComponent} from './market/market-overview.component';

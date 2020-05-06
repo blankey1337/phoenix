@@ -16,7 +16,7 @@ import {CommonModule} from '@angular/common';
 import {BurstRecipientInputComponent} from './components/burst-recipient-input/burst-recipient-input.component';
 import {BurstFeeSelectorComponent} from './components/burst-fee-selector/burst-fee-selector.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatProgressBarModule} from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {AppSharedModule} from '../shared/shared.module';
 
 @NgModule({

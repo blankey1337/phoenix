@@ -13,8 +13,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {TranslateModule} from '@ngx-translate/core';
 
-import 'hammerjs';
-
 import {AppComponent} from 'app/app.component';
 import {MainModule} from './main/main.module';
 import {LoginModule} from './login/login.module';
@@ -32,7 +30,7 @@ import {SettingsResolver} from './store/settings.resolver';
 import {registerLocales} from './layout/components/i18n/locales';
 import {NgxElectronModule} from 'ngx-electron';
 import {NewVersionDialogComponent} from './components/new-version-dialog/new-version-dialog.component';
-import {MatProgressBarModule} from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 registerLocales();
 

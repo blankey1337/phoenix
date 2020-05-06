@@ -33,7 +33,7 @@ import {TransactionService} from 'app/main/transactions/transaction.service';
 import {AccountService} from 'app/setup/account/account.service';
 import {Account} from '@burstjs/core';
 import {WarnSendDialogComponent} from '../warn-send-dialog/warn-send-dialog.component';
-import { MatProgressBarModule } from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DomainService } from '../domain/domain.service';
 import {AppSharedModule} from '../../../shared/shared.module';
 
