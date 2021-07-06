@@ -290,7 +290,6 @@ export class SendBurstForm extends React.Component<Props, SendBurstFormState> {
     };
 
     setConfirmedRisk = (confirmedRisk: boolean) => {
-        console.log('setConfirmedRisk', confirmedRisk)
         this.setState({confirmedRisk});
     };
 
