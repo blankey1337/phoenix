@@ -220,14 +220,14 @@ export class SendBurstForm extends React.Component<Props, SendBurstFormState> {
                 confirmedRisk: true,
                 recipient: {
                     ...this.state.recipient,
-                    addressRS: accountRS.replace(/^S-/, 'BURST-'),
+                    addressRS: accountRS,
                     status: RecipientValidationStatus.VALID
                 }
             });
         } catch (e) {
             const addressRS = (isBurstAddress(recipient) || this.state.recipient.type === RecipientType.ZIL)
                 ? recipient
-                : convertNumericIdToAddress(recipient);
+                : convertNumericIdToAddress(compatRSAddress(recipient));
             this.setState({
                 confirmedRisk: false,
                 recipient: {
