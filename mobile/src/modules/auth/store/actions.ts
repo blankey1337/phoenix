@@ -9,6 +9,7 @@ import {createAction, createActionFn} from '../../../core/utils/store';
 import {auth} from '../translations';
 import {actionTypes} from './actionTypes';
 import {getAccounts, getAgreeToTerms, getPasscode, getPasscodeEnteredTime, resetKeychain, savePasscode, savePasscodeEnteredTime, setAccounts} from './utils';
+import {compatRSAddress} from '../../../core/utils/compatRSAddress';
 
 interface ZilResponse {
   addresses: {
@@ -68,7 +69,8 @@ export const createActiveAccount = createActionFn<string[], Account>(
 );
 
 export const createOfflineAccount = createActionFn<string, Account>(
-  (_dispatch, getState, accountRS): Account => {
+  (_dispatch, getState, _accountRS): Account => {
+    const accountRS = compatRSAddress(_accountRS);
     if (!isValid(accountRS)) {
       throw new Error(i18n.t(auth.errors.incorrectAddress));
     }

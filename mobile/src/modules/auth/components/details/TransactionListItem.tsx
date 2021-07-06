@@ -7,6 +7,7 @@ import { Text, TextAlign } from '../../../../core/components/base/Text';
 import { Colors } from '../../../../core/theme/colors';
 import { defaultSideOffset, FontSizes, Sizes } from '../../../../core/theme/sizes';
 import { getShortDateFromTimestamp } from '../../../../core/utils/date';
+import {compatRSAddress} from '../../../../core/utils/compatRSAddress';
 
 interface Props {
   transaction: Transaction;
@@ -83,7 +84,7 @@ export class TransactionListItem extends React.PureComponent<Props> {
     }
 
     return this.isMultiOutPayment(transaction)
-      ? getRecipientsAmount(convertAddressToNumericId(this.props.accountRS), transaction)
+      ? getRecipientsAmount(convertAddressToNumericId(compatRSAddress(this.props.accountRS)), transaction)
       : convertNQTStringToNumber(transaction.amountNQT || '0');
   }
 

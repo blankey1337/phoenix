@@ -25,6 +25,7 @@ import {Recipient, RecipientType, RecipientValidationStatus} from '../../store/u
 import {transactions} from '../../translations';
 import {FeeSlider} from '../fee-slider/FeeSlider';
 import {AccountStatusPill} from './AccountStatusPill';
+import {compatRSAddress} from '../../../../core/utils/compatRSAddress';
 
 const burstPrefix = 'BURST-';
 
@@ -137,13 +138,16 @@ export class SendBurstForm extends React.Component<Props, SendBurstFormState> {
     };
 
     applyRecipientType(recipient: string): void {
-        const r = recipient.trim();
+        let r = recipient.trim();
         let type: RecipientType;
 
         if (r.length === 0) {
             type = RecipientType.UNKNOWN;
         } else if (r.toUpperCase().startsWith(burstPrefix)) {
             type = RecipientType.ADDRESS;
+        } else if (r.toUpperCase().startsWith('S-')) {
+            type = RecipientType.ADDRESS;
+            r = compatRSAddress(r);
         } else if (r.toUpperCase().endsWith('.ZIL') || r.toUpperCase().endsWith('.CRYPTO')) {
             type = RecipientType.ZIL;
         } else if (/^\d+$/.test(r)) {
@@ -174,7 +178,7 @@ export class SendBurstForm extends React.Component<Props, SendBurstFormState> {
                 accountFetchFn = this.props.onGetAlias;
                 break;
             case RecipientType.ADDRESS:
-                formattedAddress = convertAddressToNumericId(recipient);
+                formattedAddress = convertAddressToNumericId(compatRSAddress(recipient));
                 accountFetchFn = this.props.onGetAccount;
                 break;
             case RecipientType.ZIL:
@@ -216,7 +220,7 @@ export class SendBurstForm extends React.Component<Props, SendBurstFormState> {
                 confirmedRisk: true,
                 recipient: {
                     ...this.state.recipient,
-                    addressRS: accountRS,
+                    addressRS: accountRS.replace(/^S-/, 'BURST-'),
                     status: RecipientValidationStatus.VALID
                 }
             });
@@ -238,12 +242,11 @@ export class SendBurstForm extends React.Component<Props, SendBurstFormState> {
     isSubmitEnabled = () => {
         const {sender, recipient, amount, fee, confirmedRisk} = this.state;
         const {loading} = this.props;
-
         return Boolean(
             Number(amount) &&
             Number(fee) &&
             sender &&
-            isValid(recipient.addressRS) &&
+            isValid(compatRSAddress(recipient.addressRS)) &&
             !loading &&
             confirmedRisk
         );
@@ -287,6 +290,7 @@ export class SendBurstForm extends React.Component<Props, SendBurstFormState> {
     };
 
     setConfirmedRisk = (confirmedRisk: boolean) => {
+        console.log('setConfirmedRisk', confirmedRisk)
         this.setState({confirmedRisk});
     };
 
@@ -495,11 +499,11 @@ export class SendBurstForm extends React.Component<Props, SendBurstFormState> {
                     /> : null}
 
                     {this.shouldShowAliasWarning() &&
-                        <View style={{marginTop: 4, marginLeft: 4}}>
-                                <BText bebasFont color={Colors.ORANGE}>
-                                    Alias does not exist! Send not allowed.
-                                </BText>
-                        </View>
+                    <View style={{marginTop: 4, marginLeft: 4}}>
+                        <BText bebasFont color={Colors.ORANGE}>
+                            Alias does not exist! Send not allowed.
+                        </BText>
+                    </View>
                     }
 
                     {this.shouldConfirmRisk() &&
