@@ -1,13 +1,14 @@
 import { getRecipientsAmount, isMultiOutSameTransaction, isMultiOutTransaction, Transaction } from '@burstjs/core';
 import { convertAddressToNumericId, convertNQTStringToNumber } from '@burstjs/util';
+import memoize from 'lodash/memoize';
 import React from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 import { actionIcons, transactionIcons } from '../../../../assets/icons';
 import { Text, TextAlign } from '../../../../core/components/base/Text';
 import { Colors } from '../../../../core/theme/colors';
 import { defaultSideOffset, FontSizes, Sizes } from '../../../../core/theme/sizes';
+import { compatRSAddress } from '../../../../core/utils/compatRSAddress';
 import { getShortDateFromTimestamp } from '../../../../core/utils/date';
-import {compatRSAddress} from '../../../../core/utils/compatRSAddress';
 
 interface Props {
   transaction: Transaction;
@@ -63,9 +64,13 @@ const styles: any = {
     flexDirection: 'row'
   },
   account: {
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   }
 };
+
+const convertCompatAddressToNumericId = memoize((accountRS: string): string => {
+  return convertAddressToNumericId(compatRSAddress(accountRS));
+});
 
 export class TransactionListItem extends React.PureComponent<Props> {
 
@@ -74,22 +79,23 @@ export class TransactionListItem extends React.PureComponent<Props> {
   }
 
   isOwnAccount (address: string | undefined): boolean {
-    return address && address === this.props.accountRS ? true : false;
+    const accountId = convertCompatAddressToNumericId(this.props.accountRS);
+    return !!(address && address === accountId);
   }
 
   getAmount = (transaction: Transaction): number => {
 
-    if (this.isOwnAccount(transaction.senderRS)) {
+    if (this.isOwnAccount(transaction.sender)) {
       return -convertNQTStringToNumber(transaction.amountNQT || '0');
     }
 
     return this.isMultiOutPayment(transaction)
-      ? getRecipientsAmount(convertAddressToNumericId(compatRSAddress(this.props.accountRS)), transaction)
+      ? getRecipientsAmount(convertCompatAddressToNumericId(this.props.accountRS), transaction)
       : convertNQTStringToNumber(transaction.amountNQT || '0');
   }
 
   isAmountNegative = (transaction: Transaction): boolean => {
-    return this.isOwnAccount(transaction.senderRS);
+    return this.isOwnAccount(transaction.sender);
   }
 
   handlePress = () => {
@@ -128,6 +134,7 @@ export class TransactionListItem extends React.PureComponent<Props> {
       recipientRS = '',
       senderRS = ''
     } = this.props.transaction;
+
     const isNegative = this.isAmountNegative(this.props.transaction);
     const amount = this.getAmount(this.props.transaction);
     let accountRS = isNegative ? recipientRS : senderRS;
